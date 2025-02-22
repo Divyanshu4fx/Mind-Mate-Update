@@ -78,10 +78,13 @@ app.get("/auth/check", (req, res) => {
 
 app.get(
   "/auth/google/callback",
+  (req, res, next) => {
+    console.log("Redirect URI received:", req.originalUrl);
+    next();
+  },
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
-    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
-    res.redirect(frontendUrl);
+    res.redirect(process.env.FRONTEND_URL);
   }
 );
 
