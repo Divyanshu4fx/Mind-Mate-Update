@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Signup from "./SignUp";
 import MainApp from "./MainApp";
 import { useEffect, useState } from "react";
+import React from "react";
 
 function App() {
   const [user, setUser] = useState(null);
