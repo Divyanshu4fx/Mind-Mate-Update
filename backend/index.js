@@ -26,7 +26,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const client = new ElevenLabsClient({ apiKey: ELEVENLABS_API_KEY });
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 10000; // Use Render's assigned port
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -291,7 +291,7 @@ const audioFileToBase64 = async (file) => {
   return data.toString("base64");
 };
 
-app.listen(port, () => {
-  console.log(`Bot listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Bot listening on port ${PORT}`);
 });
 
