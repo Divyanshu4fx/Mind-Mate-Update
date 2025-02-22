@@ -1,41 +1,19 @@
 import { useRef, useState, useEffect } from "react";
 import { useChat } from "../hooks/useChat";
-import { Vid } from "./VideoFeed"
+import { Vid } from "./VideoFeed";
+
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000"; 
+
 export const UI = ({ hidden }) => {
   const input = useRef();
   const { chat, loading, message } = useChat();
   const [user, setUser] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
-  const sendMessage = () => {
-    const text = input.current.value;
-    if (!loading && !message) {
-      chat(text);
-      input.current.value = "";
-    }
-  };
-  if (hidden) {
-    return null;
-  }
-
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-    
-    fetch("http://localhost:3000/logout", { credentials: "include" })
-      .then(() => {
-        window.location.reload(); 
-      })
-      .catch(err => console.error("Logout failed:", err));
-  };
-  
-
-
-
-  const [Camera, setCamera] = useState(false)
+  const [Camera, setCamera] = useState(false);
   const vidRef = useRef();
 
   useEffect(() => {
-    fetch("http://localhost:3000/user", {
+    fetch(`${apiUrl}/user`, {
       credentials: "include"
     })
       .then((res) => res.json())
@@ -45,6 +23,28 @@ export const UI = ({ hidden }) => {
       .catch((err) => console.error('Error fetching user:', err));
   }, []);
 
+  const sendMessage = () => {
+    const text = input.current.value;
+    if (!loading && !message) {
+      chat(text);
+      input.current.value = "";
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+
+    fetch(`${apiUrl}/logout`, { credentials: "include" })
+      .then(() => {
+        window.location.reload();
+      })
+      .catch(err => console.error("Logout failed:", err));
+  };
+
+  if (hidden) {
+    return null;
+  }
 
   return (
     <>
@@ -56,7 +56,7 @@ export const UI = ({ hidden }) => {
           </div>
 
           {user && (
-            <div className="relative ml-4 pointer-events-auto"> {/* Allow interactions */}
+            <div className="relative ml-4 pointer-events-auto">
               {user.picture ? (
                 <img
                   src={user.picture}
@@ -89,7 +89,6 @@ export const UI = ({ hidden }) => {
               )}
             </div>
           )}
-
         </div>
 
         <div className="w-full flex flex-col items-end justify-center gap-4">
@@ -119,8 +118,9 @@ export const UI = ({ hidden }) => {
           <button
             disabled={loading || message}
             onClick={sendMessage}
-            className={`bg-blue-500 hover:bg-blue-600 text-white p-4 px-10 font-semibold uppercase rounded-md ${loading || message ? "cursor-not-allowed opacity-30" : ""
-              }`}
+            className={`bg-blue-500 hover:bg-blue-600 text-white p-4 px-10 font-semibold uppercase rounded-md ${
+              loading || message ? "cursor-not-allowed opacity-30" : ""
+            }`}
           >
             Send
           </button>

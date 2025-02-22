@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
-        <div className={styles.logo}>MindChat</div>
+        <div className={styles.logo}>MindMate</div>
         <nav className={styles.footerNav}>
           <a href="#features">Features</a>
           <a href="#testimonials">Testimonials</a>

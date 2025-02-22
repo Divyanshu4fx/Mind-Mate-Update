@@ -26,7 +26,7 @@ const Features = () => {
 
   return (
     <section id="features" className={styles.features}>
-      <h2>Why Choose MindChat?</h2>
+      <h2>Why Choose MindMate?</h2>
       <div className={styles.featureGrid}>
         {features.map((feature, index) => (
           <div key={index} className={styles.featureCard}>

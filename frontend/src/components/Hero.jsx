@@ -27,7 +27,7 @@ const Hero = () => {
                 }}
             >
                 <h1>Your Personal Mental Health Companion</h1>
-                <p>Experience 24/7 support, guided self-reflection, and personalized coping strategies with MindChat.</p>
+                <p>Experience 24/7 support, guided self-reflection, and personalized coping strategies with MindMate.</p>
                 <button
                     className={styles.cta}
                     onClick={() => window.open("https://github.com/Swastik19Nit/Mind-Mate", "_blank")}

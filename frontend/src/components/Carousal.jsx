@@ -8,7 +8,7 @@ const Carousel = () => {
   const testimonials = [
     {
       quote:
-        "MindChat has been a game-changer for my mental health. It's like having a supportive friend available 24/7.",
+        "Mind-Mate has been a game-changer for my mental health. It's like having a supportive friend available 24/7.",
       author: "Sarah K.",
     },
     {
@@ -17,7 +17,7 @@ const Carousel = () => {
     },
     {
       quote:
-        "As a therapist, I recommend MindChat to my clients for additional support between sessions. It's an invaluable tool.",
+        "As a therapist, I recommend Mind-Mate to my clients for additional support between sessions. It's an invaluable tool.",
       author: "Dr. Emily Chen",
     },
   ]

@@ -5,10 +5,6 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 
 const Signup = () => {
- 
-  const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
-  };
 
   return (
     <>

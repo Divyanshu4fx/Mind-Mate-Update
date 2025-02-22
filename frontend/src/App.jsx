@@ -8,8 +8,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   
-  const apiUrl = 'http://localhost:3000';
-
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
   useEffect(() => {
     fetch(`${apiUrl}/auth/check`, {
       credentials: "include",

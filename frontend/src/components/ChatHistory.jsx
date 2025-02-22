@@ -9,10 +9,10 @@ const ChatHistory = () => {
     useEffect(() => {
         fetchChats();
     }, []);
-
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
     const fetchChats = async () => {
         try {
-            const response = await fetch('http://localhost:3000/chats', {
+            const response = await fetch(`${apiUrl}/chats`, {
                 credentials: 'include'
             });
             const data = await response.json();
