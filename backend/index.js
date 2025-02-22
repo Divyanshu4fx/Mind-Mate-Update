@@ -80,13 +80,11 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
-    if (req.user) {
-      res.redirect("http://localhost:5173 ");
-    } else {
-      res.redirect("http://localhost:5173");
-    }
+    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+    res.redirect(frontendUrl);
   }
 );
+
 
 app.get("/user", (req, res) => {
   if (req.isAuthenticated()) {
