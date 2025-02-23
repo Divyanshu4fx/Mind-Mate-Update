@@ -297,6 +297,6 @@ const audioFileToBase64 = async (file) => {
 
 app.listen(PORT, () => {
   console.log(`Bot listening on port ${PORT}`);
+  console.log(process.env.BACKEND_URL);
+  console.log(process.env.FRONTEND_URL);
 });
-console.log(process.env.BACKEND_URL);
-console.log(process.env.FRONTEND_URL);
