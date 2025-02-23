@@ -26,7 +26,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const client = new ElevenLabsClient({ apiKey: ELEVENLABS_API_KEY });
 
 const app = express();
-const PORT = process.env.PORT || 10000; // Use Render's assigned port
+const PORT = process.env.PORT || 3000; // Use Render's assigned port
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -42,7 +42,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL, 
+    origin: process.env.FRONTEND_URL || "http://localhost:5173", 
     credentials: true, 
   })
 );
