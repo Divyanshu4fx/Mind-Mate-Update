@@ -27,6 +27,7 @@ const client = new ElevenLabsClient({ apiKey: ELEVENLABS_API_KEY });
 
 const app = express();
 const PORT = process.env.PORT || 3000; // Use Render's assigned port
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -297,4 +298,5 @@ const audioFileToBase64 = async (file) => {
 app.listen(PORT, () => {
   console.log(`Bot listening on port ${PORT}`);
 });
-
+console.log(process.env.BACKEND_URL);
+console.log(process.env.FRONTEND_URL);
