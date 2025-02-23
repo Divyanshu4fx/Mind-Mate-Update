@@ -84,7 +84,7 @@ app.get(
   },
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
-    res.redirect(process.env.FRONTEND_URL);
+    res.redirect(process.env.FRONTEND_URL || "http://localhost:5173/app");
   }
 );
 
