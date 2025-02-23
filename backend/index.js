@@ -57,6 +57,11 @@ app.use(
       mongoUrl: process.env.MONGO_URI, // Use your MongoDB URI
       collectionName: "sessions", // The collection where session data will be stored
     }),
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // Enable in production (HTTPS required)
+      httpOnly: true, // Prevents JavaScript access to cookies
+      sameSite: "None", // Required for cross-origin cookies
+    },
   })
 );
 
