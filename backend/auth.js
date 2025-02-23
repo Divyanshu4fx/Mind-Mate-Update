@@ -2,15 +2,14 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import User from "../backend/models/User.js"
-
 dotenv.config()
 
 passport.use(
     new GoogleStrategy(
         {
-            clientID: process.env.GOOGLE_CLIENT_ID,
+            clientID: process.env.GOOGLE_CLIENT_ID, 
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: "http://mind-mate-update.onrender.com/auth/google/callback",
+            callbackURL: `${process.env.BACKEND_URL || "http://localhost:3000"}/auth/google/callback`
         },
         async (accessToken, refreshToken, profile, done) => {
             try {

@@ -15,6 +15,7 @@
     "@react-three/xr": "^5.7.1",
     "@types/three": "0.152.1",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
     "leva": "^0.9.35",
     "lucide-react": "^0.475.0",
     "react": "18",

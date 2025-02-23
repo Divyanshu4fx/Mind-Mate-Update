@@ -9,6 +9,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   
   const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
   useEffect(() => {
     fetch(`${apiUrl}/auth/check`, {
       credentials: "include",
@@ -42,14 +43,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={user ? <Navigate to="/app" /> : <Signup />}
-        />
-        <Route
-          path="/app"
-          element={user ? <MainApp /> : <Navigate to="/" />}
-        />
+        <Route path="/" element={user ? <Navigate to="/app" /> : <Signup />} />
+        <Route path="/app" element={user ? <MainApp /> : <Navigate to="/" />} />
       </Routes>
     </Router>
   );
