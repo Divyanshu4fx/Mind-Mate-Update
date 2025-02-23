@@ -3,7 +3,7 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import User from "../backend/models/User.js"
 dotenv.config()
-
+console.log(process.env.BACKEND_URL)
 passport.use(
     new GoogleStrategy(
         {
